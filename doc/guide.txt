@@ -1,0 +1,29 @@
+EC2: https://blog.csdn.net/jiuhebaobei/article/details/127801293
+INSTALL docker on ec2: https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
+INSTALL GIT ON ec2: https://medium.com/coder-life/practice-2-host-your-website-on-github-pages-39229dc9bb1b
+ECS  :https://mydeveloperplanet.com/2021/10/12/how-to-deploy-a-spring-boot-app-on-aws-fargate/
+
+sudo systemctl start docker.service #<-- start the service
+sudo systemctl stop docker.service #<-- stop the service
+sudo systemctl restart docker.service #<-- restart the service
+sudo systemctl status docker.service #<-- get the service status
+
+
+sudo docker build -t rental  .
+sudo docker images
+
+sudo docker run -d -p 80:80 --name rental rental
+sudo docker ps
+# including down container
+sudo docker ps -a   
+sudo docker port rental 
+sudo docker stop 52f2b02bafd2
+sudo docker rm 52f2b02bafd2
+
+# The  command tells Docker to remove the container if it’s shut down, map 80->8080(external)
+sudo docker run --rm -d -p 8080:80 --name rental rental
+sudo docker ps -a
+sudo docker stop 52f2b02bafd2
+
+ssh-keygen -t rsa -C "ahuoo@foxmail.com"
+
